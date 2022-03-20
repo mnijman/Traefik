@@ -1,0 +1,30 @@
+http:
+  routers:
+    dsm:
+      rule: Host(`dsm.lan`)
+      service: dsm
+      entrypoints: 
+        - web
+      middlewares:
+        - url-regex
+        - https-redirect
+    dsm_mn:
+      rule: Host(`dsm.marcnijman.nl`)
+      service: dsm
+      entrypoints: 
+        - websecure
+      tls: true
+      tls:
+        certResolver: le
+
+
+  services:
+    dsm:
+      loadBalancer:
+        servers:
+        - url: http://192.168.1.200:5000
+        passhostheader: true
+
+        
+      
+       

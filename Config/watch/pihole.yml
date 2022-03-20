@@ -1,0 +1,32 @@
+http:
+  routers:
+    pihole:
+      rule: Host(`pihole.lan`)
+      service: pihole
+      entrypoints: 
+        - web
+      middlewares:
+        - url-regex
+        - https-redirect
+    pihole_mn:
+      rule: Host(`pihole.marcnijman.nl`)
+      service: pihole
+      entrypoints: 
+        - websecure
+      tls: true
+      tls:
+        certResolver: le
+      middlewares:
+        - add-admin
+
+
+  services:
+    pihole:
+      loadBalancer:
+        servers:
+        - url: http://192.168.1.191
+        passhostheader: true
+
+        
+      
+       

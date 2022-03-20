@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+# The reverse proxy service (Træfik)
+  traefik:
+    hostname: traefik
+    image: traefik:v2.6.1
+    container_name: traefik
+    restart: always
+    network_mode: "bridge"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+      
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${DOCKERDIR}/traefik/Config:/etc/traefik
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    
+    environment:
+      - CF_API_EMAIL=$CF_API_EMAIL
+      - CF_API_KEY=$CF_API_KEY
+    
+

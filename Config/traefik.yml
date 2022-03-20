@@ -1,0 +1,39 @@
+## STATIC CONFIGURATION
+log:
+  level: INFO
+  filePath: /etc/traefik/log/traefik.log
+
+api:
+  insecure: true
+  dashboard: true
+  
+entryPoints:
+  web:
+    address: :80
+
+  websecure:
+    address: :443
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    constraints: "Label(`traefik.scope`, `local`)"
+
+  file:
+    directory: /etc/traefik/watch
+    watch: true
+
+serversTransport:
+  insecureSkipVerify: true
+
+certificatesResolvers:
+  le: 
+    acme:
+      email: admin@domain.com
+      storage: /etc/traefik/acme/acme.json
+      dnsChallenge:
+        provider: cloudflare
+        delayBeforeCheck: 0
+      
+       

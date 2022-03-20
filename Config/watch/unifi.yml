@@ -1,0 +1,31 @@
+http:
+  routers:
+    unifi:
+      rule: Host(`unifi.lan`)
+      service: unifi
+      entrypoints:
+        - web
+      middlewares:
+        - url-regex
+        - https-redirect
+    unifi_mn:
+      rule: Host(`unifi.marcnijman.nl`)
+      service: unifi
+      entrypoints:
+        - websecure
+      tls: true
+      tls:
+        certResolver: le
+
+
+  services:
+    unifi:
+      loadBalancer:
+        servers:
+        - url: https://192.168.1.180:8443
+        passhostheader: true
+
+
+
+
+

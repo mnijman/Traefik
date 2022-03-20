@@ -1,0 +1,30 @@
+http:
+  routers:
+    hass:
+      rule: Host(`hass.lan`)
+      service: hass
+      entrypoints: 
+        - web
+      middlewares:
+        - url-regex
+        - https-redirect
+    hass_mn:
+      rule: Host(`hass.marcnijman.nl`)
+      service: hass
+      entrypoints: 
+        - websecure
+      tls: true
+      tls:
+        certResolver: le
+
+
+  services:
+    hass:
+      loadBalancer:
+        servers:
+        - url: http://192.168.1.180:8123
+        passhostheader: true
+
+        
+      
+       

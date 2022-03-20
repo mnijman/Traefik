@@ -1,0 +1,30 @@
+http:
+  routers:
+    esxi:
+      rule: Host(`esxi.lan`)
+      service: esxi
+      entrypoints: 
+        - web
+      middlewares:
+        - url-regex
+        - https-redirect
+    esxi_mn:
+      rule: Host(`esxi.marcnijman.nl`)
+      service: esxi
+      entrypoints: 
+        - websecure
+      tls: true
+      tls:
+        certResolver: le
+
+
+  services:
+    esxi:
+      loadBalancer:
+        servers:
+        - url: https://192.168.1.150
+        passhostheader: true
+
+        
+      
+       
