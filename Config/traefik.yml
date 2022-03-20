@@ -30,7 +30,7 @@ serversTransport:
 certificatesResolvers:
   le: 
     acme:
-      email: admin@domain.com
+      email: admin@{{env "EXT_DOMAIN"}}
       storage: /etc/traefik/acme/acme.json
       dnsChallenge:
         provider: cloudflare

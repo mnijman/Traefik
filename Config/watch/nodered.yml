@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     nodered_mn:
-      rule: Host(`nodered.domain.com`)
+      rule: Host(`nodered.{{env "EXT_DOMAIN"}}`)
       service: nodered
       entrypoints: 
         - websecure

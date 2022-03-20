@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     pihole_mn:
-      rule: Host(`pihole.domain.com`)
+      rule: Host(`pihole.{{env "EXT_DOMAIN"}}`)
       service: pihole
       entrypoints: 
         - websecure

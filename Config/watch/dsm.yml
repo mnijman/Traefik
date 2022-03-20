@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     dsm_mn:
-      rule: Host(`dsm.domain.com`)
+      rule: Host(`dsm.{{env "EXT_DOMAIN"}}`)
       service: dsm
       entrypoints: 
         - websecure

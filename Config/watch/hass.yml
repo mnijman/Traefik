@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     hass_mn:
-      rule: Host(`hass.domain.com`)
+      rule: Host(`hass.{{env "EXT_DOMAIN"}}`)
       service: hass
       entrypoints: 
         - websecure

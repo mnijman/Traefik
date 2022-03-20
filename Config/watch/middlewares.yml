@@ -6,7 +6,7 @@ http:
     url-regex:
       redirectRegex:
         regex: "^^https?://(.*).lan/?"
-        replacement: "https://${1}.domain.com"
+        replacement: "https://${1}.{{env "EXT_DOMAIN"}}"
         permanent: true
 
     add-admin:

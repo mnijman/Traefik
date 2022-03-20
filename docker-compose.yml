@@ -20,7 +20,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
     
     environment:
-      - CF_API_EMAIL=$CF_API_EMAIL
-      - CF_API_KEY=$CF_API_KEY
+      - CF_API_EMAIL
+      - CF_API_KEY
+      - EXT_DOMAIN
     
 

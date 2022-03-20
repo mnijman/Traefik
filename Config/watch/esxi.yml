@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     esxi_mn:
-      rule: Host(`esxi.domain.com`)
+      rule: Host(`esxi.{{env "EXT_DOMAIN"}}`)
       service: esxi
       entrypoints: 
         - websecure

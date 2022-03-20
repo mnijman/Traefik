@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     unifi_mn:
-      rule: Host(`unifi.domain.com`)
+      rule: Host(`unifi.{{env "EXT_DOMAIN"}}`)
       service: unifi
       entrypoints:
         - websecure
