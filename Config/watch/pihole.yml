@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     pihole_mn:
-      rule: Host(`pihole.marcnijman.nl`)
+      rule: Host(`pihole.domain.com`)
       service: pihole
       entrypoints: 
         - websecure

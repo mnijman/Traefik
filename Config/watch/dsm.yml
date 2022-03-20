@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     dsm_mn:
-      rule: Host(`dsm.marcnijman.nl`)
+      rule: Host(`dsm.domain.com`)
       service: dsm
       entrypoints: 
         - websecure

@@ -6,7 +6,7 @@ http:
     url-regex:
       redirectRegex:
         regex: "^^https?://(.*).lan/?"
-        replacement: "https://${1}.marcnijman.nl"
+        replacement: "https://${1}.domain.com"
         permanent: true
 
     add-admin:

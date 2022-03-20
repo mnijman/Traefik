@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     nodered_mn:
-      rule: Host(`nodered.marcnijman.nl`)
+      rule: Host(`nodered.domain.com`)
       service: nodered
       entrypoints: 
         - websecure

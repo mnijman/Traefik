@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     hass_mn:
-      rule: Host(`hass.marcnijman.nl`)
+      rule: Host(`hass.domain.com`)
       service: hass
       entrypoints: 
         - websecure

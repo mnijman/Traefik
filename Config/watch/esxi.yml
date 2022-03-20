@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     esxi_mn:
-      rule: Host(`esxi.marcnijman.nl`)
+      rule: Host(`esxi.domain.com`)
       service: esxi
       entrypoints: 
         - websecure

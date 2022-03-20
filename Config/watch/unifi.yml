@@ -9,7 +9,7 @@ http:
         - url-regex
         - https-redirect
     unifi_mn:
-      rule: Host(`unifi.marcnijman.nl`)
+      rule: Host(`unifi.domain.com`)
       service: unifi
       entrypoints:
         - websecure
